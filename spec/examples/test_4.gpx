@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><gpx creator="https://mapa-turystyczna.pl" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <link href="https://mapa-turystyczna.pl">
+      <text>mapa-turystyczna.pl</text>
+    </link>
+    <time>2020-06-07T13:17:32Z</time>
+    <bounds maxlat="49.5039739" maxlon="20.0407328" minlat="49.4986602" minlon="20.0366753"/>
+  </metadata>
+  <wpt lat="49.49866" lon="20.040733">
+    <ele>617</ele>
+    <name>Nowy Targ, Kowaniec</name>
+    <link href="https://mapa-turystyczna.pl/node/88">
+      <text>Nowy Targ, Kowaniec</text>
+    </link>
+  </wpt>
+  <wpt lat="49.503974" lon="20.037433">
+    <ele>631</ele>
+    <name>Nowy Targ, Robów</name>
+    <link href="https://mapa-turystyczna.pl/node/4103">
+      <text>Nowy Targ, Robów</text>
+    </link>
+  </wpt>
+
+<trk>
+  <name>Nowy Targ, Kowaniec – Nowy Targ, Robów</name>
+  <link href="https://mapa-turystyczna.pl/route?q=49.4986600,20.0407330;49.5039740,20.0374330">
+    <text>Nowy Targ, Kowaniec – Nowy Targ, Robów</text>
+  </link>
+  <trkseg>
+    <trkpt lat="49.4986602" lon="20.0407328">
+      <ele>617</ele>
+      <time>2020-06-07T13:17:32Z</time>
+    </trkpt>
+    <trkpt lat="49.4986967" lon="20.0404556">
+      <ele>617</ele>
+      <time>2020-06-07T13:17:57Z</time>
+    </trkpt>
+    <trkpt lat="49.4987087" lon="20.0400335">
+      <ele>617</ele>
+      <time>2020-06-07T13:18:34Z</time>
+    </trkpt>
+    <trkpt lat="49.4988349" lon="20.0397599">
+      <ele>617</ele>
+      <time>2020-06-07T13:19:04Z</time>
+    </trkpt>
+    <trkpt lat="49.4989091" lon="20.0396378">
+      <ele>617</ele>
+      <time>2020-06-07T13:19:18Z</time>
+    </trkpt>
+    <trkpt lat="49.499428" lon="20.0394863">
+      <ele>620</ele>
+      <time>2020-06-07T13:20:30Z</time>
+    </trkpt>
+    <trkpt lat="49.4996371" lon="20.0392445">
+      <ele>621</ele>
+      <time>2020-06-07T13:21:05Z</time>
+    </trkpt>
+    <trkpt lat="49.4997661" lon="20.0389653">
+      <ele>620</ele>
+      <time>2020-06-07T13:21:36Z</time>
+    </trkpt>
+    <trkpt lat="49.5002861" lon="20.038577">
+      <ele>618</ele>
+      <time>2020-06-07T13:22:54Z</time>
+    </trkpt>
+    <trkpt lat="49.5007575" lon="20.0380165">
+      <ele>624</ele>
+      <time>2020-06-07T13:24:15Z</time>
+    </trkpt>
+    <trkpt lat="49.5008552" lon="20.0378636">
+      <ele>624</ele>
+      <time>2020-06-07T13:24:34Z</time>
+    </trkpt>
+    <trkpt lat="49.5011271" lon="20.0373244">
+      <ele>624</ele>
+      <time>2020-06-07T13:25:34Z</time>
+    </trkpt>
+    <trkpt lat="49.5013462" lon="20.0370132">
+      <ele>624</ele>
+      <time>2020-06-07T13:26:14Z</time>
+    </trkpt>
+    <trkpt lat="49.5014997" lon="20.0368389">
+      <ele>624</ele>
+      <time>2020-06-07T13:26:40Z</time>
+    </trkpt>
+    <trkpt lat="49.501667" lon="20.0367343">
+      <ele>624</ele>
+      <time>2020-06-07T13:27:05Z</time>
+    </trkpt>
+    <trkpt lat="49.5019824" lon="20.0366753">
+      <ele>627</ele>
+      <time>2020-06-07T13:27:48Z</time>
+    </trkpt>
+    <trkpt lat="49.5023919" lon="20.0367289">
+      <ele>629</ele>
+      <time>2020-06-07T13:28:44Z</time>
+    </trkpt>
+    <trkpt lat="49.5027698" lon="20.0370616">
+      <ele>632</ele>
+      <time>2020-06-07T13:29:43Z</time>
+    </trkpt>
+    <trkpt lat="49.5031206" lon="20.037299">
+      <ele>634</ele>
+      <time>2020-06-07T13:30:35Z</time>
+    </trkpt>
+    <trkpt lat="49.5033425" lon="20.0373218">
+      <ele>632</ele>
+      <time>2020-06-07T13:31:05Z</time>
+    </trkpt>
+    <trkpt lat="49.5035736" lon="20.0373084">
+      <ele>630</ele>
+      <time>2020-06-07T13:31:37Z</time>
+    </trkpt>
+    <trkpt lat="49.5038343" lon="20.0374016">
+      <ele>630</ele>
+      <time>2020-06-07T13:32:13Z</time>
+    </trkpt>
+    <trkpt lat="49.5039739" lon="20.0374335">
+      <ele>631</ele>
+      <time>2020-06-07T13:32:32Z</time>
+    </trkpt>
+  </trkseg>
+</trk>
+</gpx>
