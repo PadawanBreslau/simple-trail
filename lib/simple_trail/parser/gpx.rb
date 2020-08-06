@@ -23,7 +23,7 @@ module Parser
     def extract_points
       segments = @parsed_file.dig(:trk, :trkseg)
       @points = segments.is_a?(Array) ? segments.map { |seg| seg[:trkpt] }.flatten : segments[:trkpt]
-      @simplified_points = @points.map { |point| point.select { |key, _| %i[lon lat].include? key } }
+      @simplified_points = @points.map { |point| point.select { |key, _| [:lon, :lat].include? key } }
     end
 
     def extract_data

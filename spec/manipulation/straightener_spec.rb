@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe Manipulation::Straightener do
-  it 'should calculate basic file info' do
+  it 'calculates basic file info' do
     parser = Parser::Gpx.new('./spec/examples/test_1.gpx')
     parser.read
 

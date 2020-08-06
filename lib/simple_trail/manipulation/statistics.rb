@@ -16,21 +16,21 @@ module Manipulation
     end
 
     def distance
-      latlng_points = @points.map{|p| Geokit::LatLng.new(p[:lat], p[:lon])}
+      latlng_points = @points.map { |p| Geokit::LatLng.new(p[:lat], p[:lon]) }
       (0..@points.size - 2).map do |i|
-        latlng_points[i].distance_to(latlng_points[i+1])
+        latlng_points[i].distance_to(latlng_points[i + 1])
       end.inject(:+)
     end
 
     def ascent
       (0..@points.size - 2).map do |i|
-        ascent_calc(@points[i], @points[i+1])
+        ascent_calc(@points[i], @points[i + 1])
       end.inject(:+)
     end
 
     def descent
       (0..@points.size - 2).map do |i|
-        descent_calc(@points[i], @points[i+1])
+        descent_calc(@points[i], @points[i + 1])
       end.inject(:+)
     end
 

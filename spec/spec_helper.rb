@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'simple-trail'
+require 'simple_trail'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
