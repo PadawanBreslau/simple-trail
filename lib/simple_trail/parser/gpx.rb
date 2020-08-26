@@ -11,6 +11,7 @@ module Parser
     def read
       file = File.new(@filename)
       @parsed_file = XmlHasher.parse(file)[:gpx]
+      fail unless @parsed_file
       extract_points
     end
 

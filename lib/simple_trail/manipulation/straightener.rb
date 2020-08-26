@@ -2,6 +2,8 @@
 
 module Manipulation
   class Straightener
+    attr_reader :points, :cluster_groups
+
     def initialize(points)
       @points = points
       @latlng_points = @points.map { |p| Geokit::LatLng.new(p[:lat], p[:lon]) }
@@ -10,12 +12,11 @@ module Manipulation
     def points_without_clusters
       @average_distance_between ||= average_distance_between
       @possible_clusters = detect_clusters
-      smoothe_points!
+      straighten_points!
     end
 
-    def smoothe_points!
-      group_clusters
-      straighten_points!
+    def cluster_groups
+      @cluster_groups ||= group_clusters
     end
 
     private
@@ -42,7 +43,7 @@ module Manipulation
     end
 
     def straighten_points!
-      @cluster_groups.each do |cluster_group|
+      cluster_groups.each do |cluster_group|
         cluster_coords = @points.values_at(*cluster_group)
         avg_lat = cluster_coords.map { |cc| cc[:lat].to_f }.inject(:+) / cluster_coords.size
         avg_lon = cluster_coords.map { |cc| cc[:lon].to_f }.inject(:+) / cluster_coords.size
