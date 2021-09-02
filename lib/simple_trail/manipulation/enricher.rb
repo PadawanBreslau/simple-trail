@@ -4,8 +4,9 @@ module Manipulation
   class Enricher
     attr_reader :enriched_points
 
-    def initialize(points)
+    def initialize(points, distance_limit=nil)
       @points = points
+      @distance_limit = distance_limit
       @counter = 3
     end
 
@@ -43,12 +44,12 @@ module Manipulation
       latlan(loc1).midpoint_to(latlan(loc2))
     end
 
-    GAP_LIMIT = 0.075
     def detect_gaps
+      gap_limit = @distance_limit || 0.1
       @gaps = []
       @points.each_cons(2).with_index do |pair, i|
         distance = calculate_distance(pair[0], pair[1])
-        @gaps << {origin: i, destination: i+1, distance: distance} if distance > GAP_LIMIT
+        @gaps << {origin: i, destination: i+1, distance: distance} if distance > gap_limit
       end
     end
 

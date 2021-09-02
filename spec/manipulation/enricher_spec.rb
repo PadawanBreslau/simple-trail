@@ -23,6 +23,16 @@ RSpec.describe Manipulation::Enricher do
     enrichement_logic.enrich
 
     expect(enrichement_logic.enriched_points.count).not_to eq point_count
-    require 'pry'; binding.pry
+  end
+
+  it 'something more to enrich' do
+    parser = Parser::Gpx.new('./spec/examples/gss20-full-official.gpx')
+    parser.read
+
+    point_count = parser.points.count
+    enrichement_logic = described_class.new(parser.points, 0.1)
+    enrichement_logic.enrich
+
+    expect(enrichement_logic.enriched_points.count).not_to eq point_count
   end
 end
