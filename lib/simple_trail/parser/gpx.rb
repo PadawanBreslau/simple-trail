@@ -2,7 +2,7 @@
 
 module Parser
   class Gpx
-    attr_reader :simplified_points, :points, :parsed_file
+    attr_reader :simplified_points, :points, :points_of_interests, :parsed_file
 
     def initialize(filename)
       @filename = filename
@@ -13,6 +13,7 @@ module Parser
       @parsed_file = XmlHasher.parse(file)[:gpx]
       fail unless @parsed_file
       extract_points
+      extract_pois
     end
 
     def meta
@@ -25,6 +26,10 @@ module Parser
       segments = @parsed_file.dig(:trk, :trkseg)
       @points = segments.is_a?(Array) ? segments.map { |seg| seg[:trkpt] }.flatten : segments[:trkpt]
       @simplified_points = @points.map { |point| point.select { |key, _| [:lon, :lat].include? key } }
+    end
+
+    def extract_pois
+      @points_of_interests = @parsed_file[:wpt]
     end
 
     def extract_data
