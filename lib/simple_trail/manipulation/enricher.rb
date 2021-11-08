@@ -32,7 +32,8 @@ module Manipulation
       offset = 0
       @gaps.each do |gap|
         middle_point = calculate_middle_point(@points[gap[:origin] + offset], @points[gap[:destination] + offset])
-        @points = @points.insert(gap[:destination] + offset, {lat: middle_point.lat, lon: middle_point.lng })
+        est_elevation = (@points[gap[:origin] + offset][:ele].to_f + @points[gap[:destination] + offset][:ele].to_f) / 2.0
+        @points = @points.insert(gap[:destination] + offset, {lat: middle_point.lat, lon: middle_point.lng, ele: est_elevation })
 
         offset += 1
       end

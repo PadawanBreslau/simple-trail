@@ -34,5 +34,6 @@ RSpec.describe Manipulation::Enricher do
     enrichement_logic.enrich
 
     expect(enrichement_logic.enriched_points.count).not_to eq point_count
+    expect(enrichement_logic.enriched_points.all?{|point| !point[:ele].nil?}).to be(true)
   end
 end
