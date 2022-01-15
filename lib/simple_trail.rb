@@ -8,6 +8,7 @@ require File.expand_path('simple_trail/manipulation/statistics', __dir__)
 require File.expand_path('simple_trail/manipulation/straightener', __dir__)
 require File.expand_path('simple_trail/manipulation/unifier', __dir__)
 require File.expand_path('simple_trail/manipulation/enricher', __dir__)
+require File.expand_path('simple_trail/generator/gpx', __dir__)
 
 module SimpleTrail
   Geokit.default_units = :kms
