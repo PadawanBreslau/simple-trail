@@ -84,7 +84,7 @@ module Manipulation
     end
 
     def find_and_enrich_first_occurence(i)
-      index = @points.find_index{|point| point[:total_distance] + @offset > i}
+      index = @points.find_index{|point| point[:total_distance] + @offset.to_f > i}
       @points[index].merge!(label: i)
     end
 
