@@ -36,4 +36,29 @@ RSpec.describe Manipulation::Enricher do
     expect(enrichement_logic.enriched_points.count).not_to eq point_count
     expect(enrichement_logic.enriched_points.all?{|point| !point[:ele].nil?}).to be(true)
   end
+
+  it 'adds labels' do
+    parser = Parser::Gpx.new('./spec/examples/gss20-full-official.gpx')
+    parser.read
+
+    enrichement_logic = described_class.new(parser.points, 0.1)
+    enrichement_logic.enrich
+
+    labels = enrichement_logic.enriched_points.map{|h| h[:label]}.compact.uniq
+    expect(labels.size).to eq 506
+    expect(labels.include?(1)).to be(true)
+    expect(labels.include?(535)).to be(false)
+  end
+
+  it 'adds labels with offset' do
+    parser = Parser::Gpx.new('./spec/examples/gss20-full-official.gpx')
+    parser.read
+
+    enrichement_logic = described_class.new(parser.points, 0.1, 50)
+    enrichement_logic.enrich
+    labels = enrichement_logic.enriched_points.map{|h| h[:label]}.compact.uniq
+    expect(labels.size).to eq 506
+    expect(labels.include?(1)).to be(false)
+    expect(labels.include?(535)).to be(true)
+  end
 end

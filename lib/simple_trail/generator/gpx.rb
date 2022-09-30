@@ -20,8 +20,8 @@ module Generator
     def gpx
       builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
         xml.gpx(version: '1.0') {
-          xml.name { @name }
           xml.trk {
+            xml.name { @name }
             xml.trkseg {
               @points.map do |point|
                 xml.trkpt(lat: point[:lat], lon: point[:lon]) {

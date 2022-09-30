@@ -4,9 +4,10 @@ module Manipulation
   class Enricher
     attr_reader :enriched_points
 
-    def initialize(points, distance_limit=nil)
+    def initialize(points, distance_limit=nil, offset=0)
       @points = points
       @distance_limit = distance_limit
+      @offset = offset
       @counter = 3
     end
 
@@ -75,13 +76,15 @@ module Manipulation
 
     def add_km_markers
       total_distance = @points[-1][:total_distance].floor - 1
-      total_distance.times do |i|
+      start_v = @offset.ceil
+
+      (start_v..start_v+total_distance).each do |i|
         find_and_enrich_first_occurence(i+1)
       end
     end
 
     def find_and_enrich_first_occurence(i)
-      index = @points.find_index{|point| point[:total_distance] > i}
+      index = @points.find_index{|point| point[:total_distance] + @offset > i}
       @points[index].merge!(label: i)
     end
 
