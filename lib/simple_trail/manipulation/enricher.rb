@@ -76,7 +76,7 @@ module Manipulation
 
     def add_km_markers
       total_distance = @points[-1][:total_distance].floor - 1
-      start_v = @offset.ceil
+      start_v = @offset.to_f.ceil
 
       (start_v..start_v+total_distance).each do |i|
         find_and_enrich_first_occurence(i+1)
