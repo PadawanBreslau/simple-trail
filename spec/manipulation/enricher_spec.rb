@@ -47,6 +47,8 @@ RSpec.describe Manipulation::Enricher do
     labels = enrichement_logic.enriched_points.map{|h| h[:label]}.compact.uniq
     expect(labels.size).to eq 506
     expect(labels.include?(1)).to be(true)
+    expect(labels.include?(506)).to be(true)
+    expect(labels.include?(507)).to be(false)
     expect(labels.include?(535)).to be(false)
   end
 
@@ -59,6 +61,8 @@ RSpec.describe Manipulation::Enricher do
     labels = enrichement_logic.enriched_points.map{|h| h[:label]}.compact.uniq
     expect(labels.size).to eq 506
     expect(labels.include?(1)).to be(false)
-    expect(labels.include?(535)).to be(true)
+    expect(labels.include?(50)).to be(false)
+    expect(labels.include?(51)).to be(true)
+    expect(labels.include?(556)).to be(true)
   end
 end

@@ -85,7 +85,7 @@ module Manipulation
 
     def find_and_enrich_first_occurence(i)
       index = @points.find_index{|point| point[:total_distance] + @offset.to_f > i}
-      @points[index].merge!(label: i)
+      @points[index].merge!(label: i) if index
     end
 
     def calculate_distance(loc1, loc2)
