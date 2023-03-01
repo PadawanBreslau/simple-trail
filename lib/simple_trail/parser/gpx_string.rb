@@ -1,16 +1,14 @@
 # frozen_string_literal: true
-
 module Parser
-  class Gpx < Base
+  class GpxString < Base
     attr_reader :simplified_points, :points, :points_of_interests, :parsed_file
 
-    def initialize(filename)
-      @filename = filename
+    def initialize(file_content)
+      @file_content = file_content
     end
 
     def read
-      file = File.new(@filename)
-      @parsed_file = XmlHasher.parse(file)[:gpx]
+      @parsed_file = XmlHasher.parse(@file_content)[:gpx]
       fail unless @parsed_file
       extract_points
       extract_pois
