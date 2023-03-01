@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.description = 'Optimazing and manipulating GPX file data. For my private purposes mostly'
   s.authors     = ['Staszek Zawadzki']
   s.email       = 'st.zawadzki@gmail.com'
+  s.homepage    = 'https://github.com/PadawanBreslau/simple-trail'
 
   s.files = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
