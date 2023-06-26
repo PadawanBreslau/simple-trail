@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'simple-trail'
-  s.version     = '0.3.1'
+  s.version     = '0.3.2'
   s.date        = '2020-08-03'
   s.summary     = 'Readind and manipulating GPX and other trail representation file'
   s.description = 'Optimazing and manipulating GPX file data. For my private purposes mostly'
