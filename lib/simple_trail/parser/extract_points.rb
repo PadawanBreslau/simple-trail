@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Parser
   class ExtractPoints
     attr_reader :simplified_points, :points
@@ -9,7 +8,14 @@ module Parser
     end
 
     def read_points
+      if @parsed_file.key?(:trk)
+        extract_points_trk
+      else
+        extract_points_rte
+      end
+    end
 
+    def extract_points_trk
       main_node = @parsed_file.fetch(:trk)
 
       if main_node.is_a?(Array)
@@ -37,6 +43,11 @@ module Parser
 
     def simplified_points_selection(segment)
       segment_points_selection(segment).map { |point| point.select { |key, _| [:lon, :lat].include? key } }
+    end
+
+    def extract_points_rte
+      @points = @parsed_file.dig(:rte, :rtept)
+      @simplified_points = @points.map { |point| point.select { |key, _| [:lon, :lat].include? key } }
     end
   end
 end
