@@ -3,8 +3,14 @@
 require 'spec_helper'
 
 RSpec.describe Parser::Gpx do
-  it 'reads the file' do
+  it 'reads the file trk points' do
     gpx_parser = described_class.new('./spec/examples/test_1.gpx')
+    expect { gpx_parser.read }.not_to raise_error
+    expect(gpx_parser.parsed_file).not_to be_nil
+  end
+
+  it 'reads the file rte points' do
+    gpx_parser = described_class.new('./spec/examples/Alt_Portsmouth.gpx_0.gpx')
     expect { gpx_parser.read }.not_to raise_error
     expect(gpx_parser.parsed_file).not_to be_nil
   end
@@ -17,10 +23,21 @@ RSpec.describe Parser::Gpx do
     expect(gpx_parser.meta[:name]).to eq '06.06.2020 18:56'
   end
 
-  it 'reads points simplified/all' do
+  it 'reads points simplified/all trk' do
     gpx_parser = described_class.new('./spec/examples/test_1.gpx')
     gpx_parser.read
     expect(gpx_parser.points.size).to eq 190
+    expect(gpx_parser.points.size).to eq gpx_parser.simplified_points.size
+
+    random_index = rand(gpx_parser.points.size)
+    expect(gpx_parser.points[random_index][:lat]).to eq gpx_parser.simplified_points[random_index][:lat]
+    expect(gpx_parser.points[random_index][:lon]).to eq gpx_parser.simplified_points[random_index][:lon]
+  end
+
+  it 'reads points simplified/all rte' do
+    gpx_parser = described_class.new('./spec/examples/Alt_Portsmouth.gpx_0.gpx')
+    gpx_parser.read
+    expect(gpx_parser.points.size).to eq 180
     expect(gpx_parser.points.size).to eq gpx_parser.simplified_points.size
 
     random_index = rand(gpx_parser.points.size)
